@@ -44,4 +44,4 @@ The architecture is designed to process data in real time, starting from data ex
 
 #### Creating prefect blocks
 
-![Prefect blocks](Public\Public\Images\creat_prefect_blocks.png)
+![Prefect blocks](https://github.com/transitFlowProject/TransitFlow/blob/dde07f10f782005cfcf776d3d2900ae0cf98a338/Public/Public/Images/creat_prefect_blocks.png)
