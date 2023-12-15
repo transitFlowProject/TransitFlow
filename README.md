@@ -6,7 +6,8 @@
 > [!NOTE]
 > This repository contains an academic project designed to enhance our skills in Data Engineering. It covering the key steps to go from raw data to a live web app. This project is designed to optimize public transport by identifying delays in bus schedules in real-time. It leverages a sophisticated data pipeline to process and analyze bus operation data, aiming to enhance the reliability and efficiency of public transport services.
 
-This project establishes a data pipeline using Google Cloud Services, orchestrated with Prefect, and delivers real-time insights through a Streamlit web application. It is a showcase for data professionals to create and manage an end-to-end data workflow.
+> [!IMPORTANT] 
+> This project establishes a data pipeline using Google Cloud Services, orchestrated with Prefect, and delivers real-time insights through a Streamlit web application. It is a showcase for data professionals to create and manage an end-to-end data workflow.
 
 ## Important Links & Live Demo 🚀
 
@@ -46,6 +47,16 @@ The architecture is designed to process data in real time, starting from data ex
 
 ![Prefect blocks](https://github.com/transitFlowProject/TransitFlow/blob/dde07f10f782005cfcf776d3d2900ae0cf98a338/Public/Public/Images/creat_prefect_blocks.png)
 
+#### Running the ETL scripts 
+- ![bus_live_locations.py](https://github.com/transitFlowProject/TransitFlow/blob/1644646cd21fe61d5513d76f28e137412629506c/ETL/bus_live_locations.py) : Pulls the live bus locations from the Open Bus Data GTFS feed for the area specified by the bounding box coordinates. The data is saved as a parquet file and uploaded to the Google storage bucket.
 
-#### Developed ETL scripts
+- ![bus_timetables.py](https://github.com/transitFlowProject/TransitFlow/blob/1644646cd21fe61d5513d76f28e137412629506c/ETL/bus_timetables.py): Gets the latest bus timetable GTFS data for the relevant region, transforms it and loads the parquet file to the bucket.
+
+- ![compare_bus_times.py](https://github.com/transitFlowProject/TransitFlow/blob/1644646cd21fe61d5513d76f28e137412629506c/ETL/compare_bus_times.py): Gets the bus live location and timetable files from the bucket, transforms them and calculates which buses are currently late to arrive at their next bus stop. The output is a small csv file containing a list of late buses and their associated trip information. The csv is uploaded to the bucket.
+
+- ![write_to_bq.py](https://github.com/transitFlowProject/TransitFlow/blob/1644646cd21fe61d5513d76f28e137412629506c/ETL/write_to_bq.py): Gets the late bus csv file and appends the data to our BigQuery table.
+
+- ![create_bq_table.py](https://github.com/transitFlowProject/TransitFlow/blob/1644646cd21fe61d5513d76f28e137412629506c/ETL/create_bq_table.py) : Creates the BigQuery table with mentioned columns
+
+- ![master_flow.py](https://github.com/transitFlowProject/TransitFlow/blob/1644646cd21fe61d5513d76f28e137412629506c/ETL/master_flow.py) : Runs the entire flow and shows it on Prefect UI.
 
