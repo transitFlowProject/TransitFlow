@@ -38,3 +38,25 @@ The architecture is designed to process data in real time, starting from data ex
 4. Deployment with Docker and Cloud Run: Pack the services into Docker containers and deploy them on Cloud Run.
 5. User interface with Streamlit: Creation of a user interface with Streamlit to visualize data in real time.
 6. Automation with Terraform: Use Terraform to provision and manage the resources needed on GCP.
+
+
+
+## Steps
+
+#### Creating prefect blocks
+
+![Prefect blocks](https://github.com/transitFlowProject/TransitFlow/blob/dde07f10f782005cfcf776d3d2900ae0cf98a338/Public/Public/Images/creat_prefect_blocks.png)
+
+#### Running the ETL scripts 
+- [bus_live_locations.py](https://github.com/transitFlowProject/TransitFlow/blob/1644646cd21fe61d5513d76f28e137412629506c/ETL/bus_live_locations.py) : Pulls the live bus locations from the Open Bus Data GTFS feed for the area specified by the bounding box coordinates. The data is saved as a parquet file and uploaded to the Google storage bucket.
+
+- [bus_timetables.py](https://github.com/transitFlowProject/TransitFlow/blob/1644646cd21fe61d5513d76f28e137412629506c/ETL/bus_timetables.py): Gets the latest bus timetable GTFS data for the relevant region, transforms it and loads the parquet file to the bucket.
+
+- [compare_bus_times.py](https://github.com/transitFlowProject/TransitFlow/blob/1644646cd21fe61d5513d76f28e137412629506c/ETL/compare_bus_times.py): Gets the bus live location and timetable files from the bucket, transforms them and calculates which buses are currently late to arrive at their next bus stop. The output is a small csv file containing a list of late buses and their associated trip information. The csv is uploaded to the bucket.
+
+- [write_to_bq.py](https://github.com/transitFlowProject/TransitFlow/blob/1644646cd21fe61d5513d76f28e137412629506c/ETL/write_to_bq.py): Gets the late bus csv file and appends the data to our BigQuery table.
+
+- [create_bq_table.py](https://github.com/transitFlowProject/TransitFlow/blob/1644646cd21fe61d5513d76f28e137412629506c/ETL/create_bq_table.py) : Creates the BigQuery table with mentioned columns
+
+- [master_flow.py](https://github.com/transitFlowProject/TransitFlow/blob/1644646cd21fe61d5513d76f28e137412629506c/ETL/master_flow.py) : Runs the entire flow and shows it on Prefect UI.
+
