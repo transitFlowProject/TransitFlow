@@ -60,3 +60,5 @@ The architecture is designed to process data in real time, starting from data ex
 
 - [master_flow.py](https://github.com/transitFlowProject/TransitFlow/blob/1644646cd21fe61d5513d76f28e137412629506c/ETL/master_flow.py) : Runs the entire flow and shows it on Prefect UI.
 
+#### Execution ETL flow on Prefect
+![ETL flow execution with Prefect](https://github.com/transitFlowProject/TransitFlow/blob/e01e46db37d70848a63d4ffcb9fffbae118e03b3/Public/Public/Images/exucution_ETL_flow.png)
