@@ -37,3 +37,11 @@ The architecture is designed to process data in real time, starting from data ex
 4. Deployment with Docker and Cloud Run: Pack the services into Docker containers and deploy them on Cloud Run.
 5. User interface with Streamlit: Creation of a user interface with Streamlit to visualize data in real time.
 6. Automation with Terraform: Use Terraform to provision and manage the resources needed on GCP.
+
+
+
+## Steps
+
+#### Creating prefect blocks
+
+![Prefect blocks](Public\Public\Images\creat_prefect_blocks.png)
