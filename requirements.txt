@@ -353,7 +353,7 @@ pycountry==23.12.11
     # via gtfs-kit
 pycparser==2.21
     # via cffi
-pydantic==2.5.2
+pydantic==1.10.11
     # via
     #   fastapi
     #   prefect
