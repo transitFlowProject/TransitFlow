@@ -62,3 +62,7 @@ The architecture is designed to process data in real time, starting from data ex
 
 #### Execution ETL flow on Prefect
 ![ETL flow execution with Prefect](https://github.com/transitFlowProject/TransitFlow/blob/e01e46db37d70848a63d4ffcb9fffbae118e03b3/Public/Public/Images/exucution_ETL_flow.png)
+
+#### Creat the deployments flow 
+
+![Created the deployments to manage flow scheduling](https://github.com/transitFlowProject/TransitFlow/blob/0bf195e368d1e7e0137005d9cc6b17371426d861/Public/Public/Images/Prefect_deployement_flow.png)
