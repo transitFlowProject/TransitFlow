@@ -56,8 +56,8 @@ def refresh_map():
 
     try:
         # Uncomment this when going live to read csv file from GCP
-        # df = get_df_from_bucket()
-        # Remove this when going live
+        df = get_df_from_bucket()
+        #Remove this when going live
         df = pd.read_csv("late_buses.csv")
 
         number_of_late_buses = df["trip_id"].count()
@@ -93,7 +93,7 @@ def refresh_map():
     st.write(
         f"[Project GitHub](https://github.com/RyanEricLamb/data-engineering-bus-tracker) | [Project walkthrough](https://medium.com/@ryanelamb/a-data-engineering-project-with-prefect-docker-terraform-google-cloudrun-bigquery-and-streamlit-3fc6e08b9398?source=friends_link&sk=c83c07681d2af63d8292c2bac9e4287a) | [Source data](https://data.bus-data.dft.gov.uk/) "
     )
-    # st.text(f"Click refresh below to update")
+    st.text(f"Click refresh below to update")
 
     st_data = st_folium(m, width=725, returned_objects=[])
 
