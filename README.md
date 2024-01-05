@@ -43,6 +43,13 @@ The architecture is designed to process data in real time, starting from data ex
 
 ## Steps
 
+#### Deploy GCP infrastructures terraform
+
+![terraform.tfvars](https://github.com/transitFlowProject/TransitFlow/blob/8b26174bacbdc3365fc385a1e0e89d411160885b/terraform/terraform/terraform.tfvars): For this project we creat the storage bucket and artifact registry with Terraform. The Compute Engine and BigQuery configuration are created with prefect script.
+
+For our storage bucket below, we define its name and region, and for our artifact registry we define its ID, region and format (Docker in our case). 
+![ A GCS stores our raw data](https://github.com/transitFlowProject/TransitFlow/blob/8b26174bacbdc3365fc385a1e0e89d411160885b/Public/Public/Images/bucket.png)
+
 #### Creating prefect blocks
 
 ![Prefect blocks](https://github.com/transitFlowProject/TransitFlow/blob/dde07f10f782005cfcf776d3d2900ae0cf98a338/Public/Public/Images/creat_prefect_blocks.png)
