@@ -58,6 +58,9 @@ And for our artifact registry we define its ID, region and format (Docker in our
 
 #### Creating prefect blocks
 
+We first start by creating our prefect blocks that allow us to store configuration data to interact with external systems (authenticating with GCP, interacting with a bucket..)
+We can use our blocks by calling them in our python scripts (see below). 
+
 ![Prefect blocks](https://github.com/transitFlowProject/TransitFlow/blob/dde07f10f782005cfcf776d3d2900ae0cf98a338/Public/Public/Images/creat_prefect_blocks.png)
 
 #### Running the ETL scripts 
