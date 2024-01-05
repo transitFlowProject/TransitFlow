@@ -1,7 +1,7 @@
 <h2 align="center">TransitFlow</h2>
 <h3 align="center">Real Time Public Transportation Optimisation</h3>
 
-## Overview
+## Overview    
 
 > [!NOTE]
 > This repository contains an academic project designed to enhance our skills in Data Engineering. It covering the key steps to go from raw data to a live web app. This project is designed to optimize public transport by identifying delays in bus schedules in real-time. It leverages a sophisticated data pipeline to process and analyze bus operation data, aiming to enhance the reliability and efficiency of public transport services.
@@ -82,13 +82,13 @@ We first start by creating our prefect blocks that allow us to store configurati
 
 ![Created the deployments to manage flow scheduling](https://github.com/transitFlowProject/TransitFlow/blob/0bf195e368d1e7e0137005d9cc6b17371426d861/Public/Public/Images/Prefect_deployement_flow.png)
 
-## Stores transformed data in BigQuery
+## Store transformed data in BigQuery
 
 ![a big query table contains late buses data](https://github.com/transitFlowProject/TransitFlow/blob/20d82da43f3f4c438d8f6736939bee004bf04a7d/Public/Public/Images/big_query_recorded_data.png)
 
-##  Creating the execution environment with Docker and Cloud Run
+##  Creating the execution environment with Docker 🐋  and Cloud Run  ☁️
 
-This process involves creating a Docker image, pushing it to Google Artifact Registry, and deploying a Prefect Cloud Run Job for your data pipeline scripts. This setup allows for easy updates from GitHub without rebuilding the Docker image
+This process involves creating a Docker image, pushing it to Google Artifact Registry, and deploying a Prefect Cloud Run Job for our data pipeline scripts. This setup allows for easy updates from GitHub without rebuilding the Docker image.
 
 - [Dockerfile](https://github.com/transitFlowProject/TransitFlow/blob/651f6937ab112510032e278817ad79197c3ca28b/Dockerfile) :Dockerfile content (to install Python and project packages)
 
@@ -121,12 +121,44 @@ prefect deployment build master_flow.py:master_flow -n master__flow -sb github/b
 
 ## Running Prefect agent on Google Compute Engine
 
-### Create GCP VM Instance
+#### Create GCP VM Instance
 
 Create a GCP Compute Engine instance using the provided script (change args values) :
 - [create_vm.sh](https://github.com/transitFlowProject/TransitFlow/blob/dd0f2115cddf4c74b96f5282e0db85ab7e2a506c/scripts/create_vm.sh)
+  > [!NOTE]
+  > SSH into the VM. Use the direct SSH connection button in the console (as showned below).
+  ![](https://github.com/transitFlowProject/TransitFlow/blob/25d9a11d61c6eb3061668ad02e85d296125e47ef/Public/Public/Images/prefect_agent.png)
 
+#### Create a new shell script to install the required packages
+- [](https://github.com/transitFlowProject/TransitFlow/blob/25d9a11d61c6eb3061668ad02e85d296125e47ef/scripts/install_script.sh) :we need to install Python and Prefect, then log in to Prefect with our Prefect API key.
+- 
+and next execute the script:
 
+```bash
+./install_script.sh
+```
+
+#### Start the agent 
+Use tmux to keep the agent running after killing the SSH connection.
+
+```bash
+tmux
+prefect agent start -q default
+```
+
+##  Deploying the App on Streamlit Cloud
+
+Deploying the app on Streamlit Cloud is a straightforward process. Here's a high-level overview:
+
+#### 1. Point the Service to Your GitHub Repository:
+
+In Streamlit Cloud, provide the link to your app code on GitHub.
+#### 2. Click Deploy:
+
+Once Streamlit Cloud is linked to your GitHub repository, click the deploy button.
+#### 3. Access the Live App:
+
+Streamlit Cloud will build and deploy your app automatically. You can access the live app through the provided URL.
 
 
 > [!IMPORTANT] 
