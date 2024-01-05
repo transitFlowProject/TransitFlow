@@ -41,7 +41,7 @@ The architecture is designed to process data in real time, starting from data ex
 
 
 
-## Steps
+# Steps
 
 ## Deploy GCP infrastructures with terraform
 
