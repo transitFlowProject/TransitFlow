@@ -82,29 +82,55 @@ We first start by creating our prefect blocks that allow us to store configurati
 
 ![Created the deployments to manage flow scheduling](https://github.com/transitFlowProject/TransitFlow/blob/0bf195e368d1e7e0137005d9cc6b17371426d861/Public/Public/Images/Prefect_deployement_flow.png)
 
-#### Stores transformed data in BigQuery
+## Stores transformed data in BigQuery
 
 ![a big query table contains late buses data](https://github.com/transitFlowProject/TransitFlow/blob/20d82da43f3f4c438d8f6736939bee004bf04a7d/Public/Public/Images/big_query_recorded_data.png)
 
 ##  Creating the execution environment with Docker and Cloud Run
 
+This process involves creating a Docker image, pushing it to Google Artifact Registry, and deploying a Prefect Cloud Run Job for your data pipeline scripts. This setup allows for easy updates from GitHub without rebuilding the Docker image
 
-```bash
-$ europe-west3-docker.pkg.dev/transitflow-407821/bus-tracking-docker/transitflow:latest
+- [Dockerfile](https://github.com/transitFlowProject/TransitFlow/blob/651f6937ab112510032e278817ad79197c3ca28b/Dockerfile) :Dockerfile content (to install Python and project packages)
+
+#### Authenticate Docker with Artifact Registry
+``` bash
+$ gcloud auth configure-docker europe-west3-docker.pkg.dev
 ```
 
-[](https://github.com/transitFlowProject/TransitFlow/blob/dd0f2115cddf4c74b96f5282e0db85ab7e2a506c/Dockerfile)
+#### Build Docker Image
+``` bash
+$ docker build -t transitflow:v1 
+```
+
+#### Tag the Docker Image
+
+``` bash
+$ docker tag transitflow:v1 europe-west3-docker.pkg.dev/transitflow-407821/bus-tracking-docker/transitflow:v1
+```
+#### Push Docker Image to Artifact Registry
+``` bash
+$ docker push europe-west3-docker.pkg.dev/transitflow-407821/bus-tracking-docker/transitflow:v1
+```
+
+#### Deploy Cloud Run Job using Prefect
+``` bash
+prefect deployment build master_flow.py:master_flow -n master__flow -sb github/bus-tracker -ib cloud-run-job/bus-tracker-cloudrun -o prefect-master-flow-deployment --apply
+
+```
+
+
+## Running Prefect agent on Google Compute Engine
 
 ### Create GCP VM Instance
 
-Create a GCP Compute Engine instance (e2-medium, Ubuntu OS) using the provided script (change args values) :
+Create a GCP Compute Engine instance using the provided script (change args values) :
 - [create_vm.sh](https://github.com/transitFlowProject/TransitFlow/blob/dd0f2115cddf4c74b96f5282e0db85ab7e2a506c/scripts/create_vm.sh)
 
 
 
 
 > [!IMPORTANT] 
-> the streamlit app is no longer live  since the GCP free trial is over
+> the streamlit app is no longer live  since this project is deployed with  GCP free trial
 
 
 
