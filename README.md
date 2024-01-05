@@ -69,5 +69,7 @@ The architecture is designed to process data in real time, starting from data ex
 
 #### Stores transformed data in BigQuery
 
-![big_query_table contains late buses data]
-(Public/Public/Images/big_query_recorded_data.png)
+![a big query table contains late buses data](https://github.com/transitFlowProject/TransitFlow/blob/20d82da43f3f4c438d8f6736939bee004bf04a7d/Public/Public/Images/big_query_recorded_data.png)
+
+
+
