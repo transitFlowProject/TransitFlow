@@ -126,7 +126,7 @@ Create a GCP Compute Engine instance using the provided script (change args valu
 
   
 > [!NOTE]
-> This repository contains an academic project designed to enhance our skills in Data Engineering. It covering the key steps to go from raw data to a live web app. This project is designed to optimize public transport by identifying delays in bus schedules in real-time. It leverages a sophisticated data pipeline to process and analyze bus operation data, aiming to enhance the reliability and efficiency of public transport services.
+> Use the direct SSH connection button in the console (as showned below)
 
   ![](https://github.com/transitFlowProject/TransitFlow/blob/25d9a11d61c6eb3061668ad02e85d296125e47ef/Public/Public/Images/prefect_agent.png)
 
