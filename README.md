@@ -43,7 +43,7 @@ The architecture is designed to process data in real time, starting from data ex
 
 ## Steps
 
-#### Deploy GCP infrastructures with terraform
+## Deploy GCP infrastructures with terraform
 
 - [terraform.tfvars](https://github.com/transitFlowProject/TransitFlow/blob/8b26174bacbdc3365fc385a1e0e89d411160885b/terraform/terraform/terraform.tfvars): For this project we creat the storage bucket and artifact registry with Terraform. The Compute Engine and BigQuery configuration are created with prefect script.
 
@@ -56,13 +56,13 @@ And for our artifact registry we define its ID, region and format (Docker in our
 ![artifact registry](https://github.com/transitFlowProject/TransitFlow/blob/3f21d7c35554258423f4370ba6d875179888ac3f/Public/Public/Images/artifact_registry_dockerImage.png)
 
 
-#### Creating prefect blocks
+##Creating prefect blocks
 
 We first start by creating our prefect blocks that allow us to store configuration data to interact with external systems (authenticating with GCP, interacting with a bucket..), we can use these blocks by calling them in our python scripts (see below). 
 
 ![Prefect blocks](https://github.com/transitFlowProject/TransitFlow/blob/dde07f10f782005cfcf776d3d2900ae0cf98a338/Public/Public/Images/creat_prefect_blocks.png)
 
-#### Running the ETL scripts 
+## Running the ETL scripts 
 - [bus_live_locations.py](https://github.com/transitFlowProject/TransitFlow/blob/1644646cd21fe61d5513d76f28e137412629506c/ETL/bus_live_locations.py) : Pulls the live bus locations from the Open Bus Data GTFS feed for the area specified by the bounding box coordinates. The data is saved as a parquet file and uploaded to the Google storage bucket.
 
 - [bus_timetables.py](https://github.com/transitFlowProject/TransitFlow/blob/1644646cd21fe61d5513d76f28e137412629506c/ETL/bus_timetables.py): Gets the latest bus timetable GTFS data for the relevant region, transforms it and loads the parquet file to the bucket.
@@ -75,16 +75,32 @@ We first start by creating our prefect blocks that allow us to store configurati
 
 - [master_flow.py](https://github.com/transitFlowProject/TransitFlow/blob/1644646cd21fe61d5513d76f28e137412629506c/ETL/master_flow.py) : Runs the entire flow and shows it on Prefect UI.
 
-#### Execution ETL flow on Prefect
+## Execution ETL flow on Prefect
 ![ETL flow execution with Prefect](https://github.com/transitFlowProject/TransitFlow/blob/e01e46db37d70848a63d4ffcb9fffbae118e03b3/Public/Public/Images/exucution_ETL_flow.png)
 
-#### Creat the deployments flow 
+## Creat the deployments flow 
 
 ![Created the deployments to manage flow scheduling](https://github.com/transitFlowProject/TransitFlow/blob/0bf195e368d1e7e0137005d9cc6b17371426d861/Public/Public/Images/Prefect_deployement_flow.png)
 
 #### Stores transformed data in BigQuery
 
 ![a big query table contains late buses data](https://github.com/transitFlowProject/TransitFlow/blob/20d82da43f3f4c438d8f6736939bee004bf04a7d/Public/Public/Images/big_query_recorded_data.png)
+
+##  Creating the execution environment with Docker and Cloud Run
+
+
+```bash
+$ europe-west3-docker.pkg.dev/transitflow-407821/bus-tracking-docker/transitflow:latest
+```
+
+[](https://github.com/transitFlowProject/TransitFlow/blob/dd0f2115cddf4c74b96f5282e0db85ab7e2a506c/Dockerfile)
+
+### Create GCP VM Instance
+
+Create a GCP Compute Engine instance (e2-medium, Ubuntu OS) using the provided script (change args values) :
+- [](https://github.com/transitFlowProject/TransitFlow/blob/dd0f2115cddf4c74b96f5282e0db85ab7e2a506c/scripts/create_vm.sh)
+
+
 
 
 
