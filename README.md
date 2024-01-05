@@ -45,7 +45,7 @@ The architecture is designed to process data in real time, starting from data ex
 
 #### Deploy GCP infrastructures with terraform
 
-- ![terraform.tfvars](https://github.com/transitFlowProject/TransitFlow/blob/8b26174bacbdc3365fc385a1e0e89d411160885b/terraform/terraform/terraform.tfvars): For this project we creat the storage bucket and artifact registry with Terraform. The Compute Engine and BigQuery configuration are created with prefect script.
+- [terraform.tfvars](https://github.com/transitFlowProject/TransitFlow/blob/8b26174bacbdc3365fc385a1e0e89d411160885b/terraform/terraform/terraform.tfvars): For this project we creat the storage bucket and artifact registry with Terraform. The Compute Engine and BigQuery configuration are created with prefect script.
 
 For our storage bucket below, we define its name and region, and for our artifact registry we define its ID, region and format (Docker in our case). 
 ![ A GCS stores our raw data](https://github.com/transitFlowProject/TransitFlow/blob/8b26174bacbdc3365fc385a1e0e89d411160885b/Public/Public/Images/bucket.png)
