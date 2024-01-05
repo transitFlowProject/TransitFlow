@@ -147,7 +147,7 @@ prefect agent start -q default
 
 ##  Deploying the App on Streamlit Cloud
 
-Deploying the app on Streamlit Cloud is a straightforward process. Here's a high-level overview:
+[app.py](https://github.com/transitFlowProject/TransitFlow/blob/48e150db627e7dd112c08ba5c5755f614805e639/streamlit/app.py):Deploying the app on Streamlit Cloud is a straightforward process. Here's a high-level overview:
 
 #### 1. Point the Service to Your GitHub Repository:
 
