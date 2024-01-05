@@ -104,7 +104,7 @@ Create a GCP Compute Engine instance (e2-medium, Ubuntu OS) using the provided s
 
 
 > [!IMPORTANT] 
-> the streamlit app is no longer live  since the free trial is over
+> the streamlit app is no longer live  since the GCP free trial is over
 
 
 
