@@ -125,15 +125,17 @@ prefect deployment build master_flow.py:master_flow -n master__flow -sb github/b
 
 Create a GCP Compute Engine instance using the provided script (change args values) :
 - [create_vm.sh](https://github.com/transitFlowProject/TransitFlow/blob/dd0f2115cddf4c74b96f5282e0db85ab7e2a506c/scripts/create_vm.sh)
+- 
   
   > [!NOTE]
   > Use the direct SSH connection button in the console (as showned below).
-  
+
+
   ![](https://github.com/transitFlowProject/TransitFlow/blob/25d9a11d61c6eb3061668ad02e85d296125e47ef/Public/Public/Images/prefect_agent.png)
 
 #### Create a new shell script to install the required packages
 - [install_script.sh](https://github.com/transitFlowProject/TransitFlow/blob/25d9a11d61c6eb3061668ad02e85d296125e47ef/scripts/install_script.sh) :we need to install Python and Prefect, then log in to Prefect with our Prefect API key.
-- 
+
 and next execute the script:
 
 ```bash
