@@ -56,7 +56,7 @@ And for our artifact registry we define its ID, region and format (Docker in our
 ![artifact registry](https://github.com/transitFlowProject/TransitFlow/blob/3f21d7c35554258423f4370ba6d875179888ac3f/Public/Public/Images/artifact_registry_dockerImage.png)
 
 
-##Creating prefect blocks
+## Creating prefect blocks
 
 We first start by creating our prefect blocks that allow us to store configuration data to interact with external systems (authenticating with GCP, interacting with a bucket..), we can use these blocks by calling them in our python scripts (see below). 
 
@@ -98,7 +98,13 @@ $ europe-west3-docker.pkg.dev/transitflow-407821/bus-tracking-docker/transitflow
 ### Create GCP VM Instance
 
 Create a GCP Compute Engine instance (e2-medium, Ubuntu OS) using the provided script (change args values) :
-- [](https://github.com/transitFlowProject/TransitFlow/blob/dd0f2115cddf4c74b96f5282e0db85ab7e2a506c/scripts/create_vm.sh)
+- [create_vm.sh](https://github.com/transitFlowProject/TransitFlow/blob/dd0f2115cddf4c74b96f5282e0db85ab7e2a506c/scripts/create_vm.sh)
+
+
+
+
+> [!IMPORTANT] 
+> the streamlit app is no longer live  since the free trial is over
 
 
 
