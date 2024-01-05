@@ -68,4 +68,6 @@ The architecture is designed to process data in real time, starting from data ex
 ![Created the deployments to manage flow scheduling](https://github.com/transitFlowProject/TransitFlow/blob/0bf195e368d1e7e0137005d9cc6b17371426d861/Public/Public/Images/Prefect_deployement_flow.png)
 
 #### Stores transformed data in BigQuery
-![big_query_recorded_data.png]
+
+![big_query_table contains late buses data]
+(Public/Public/Images/big_query_recorded_data.png)
