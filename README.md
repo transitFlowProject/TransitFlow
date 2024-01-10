@@ -12,7 +12,7 @@
 ## Important Links & Live Demo 🚀
 
 - [Data Source](https://data.bus-data.dft.gov.uk/)
-- [Streamlit App](#) currently under construction 🔨
+- [Streamlit App](#) no longer live 
 
 ## Infrastructure
 
